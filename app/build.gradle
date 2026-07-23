@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.application' version '8.5.0'
 }
 
 android {
@@ -23,15 +23,4 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     ndkVersion "25.1.8937393"
-}
-
-playStoreConfig {
-    implicitDownloads {
-        enabled = true
-    }
-}
-
-install {
-    accuracy = "exact"
-    installOptions = ["-e", "-r"]
 }
