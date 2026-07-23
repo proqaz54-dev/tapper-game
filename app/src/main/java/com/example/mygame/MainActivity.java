@@ -3,16 +3,16 @@ package com.example.mygame;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class MainActivity extends AppCompatActivity {
 
     private GameView gameView;
     private TextView scoreText;
     private Button btnRestart;
-    private ConstraintLayout gameContainer;
+    private LinearLayout gameContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +24,8 @@ public class MainActivity extends AppCompatActivity {
         gameContainer = findViewById(R.id.gameContainer);
 
         gameView = new GameView(this);
-        ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(
-                ConstraintLayout.LayoutParams.WRAP_CONTENT,
-                ConstraintLayout.LayoutParams.WRAP_CONTENT);
-        params.startToStart = ConstraintLayout.LayoutParams.PARENT_ID;
-        params.endToEnd = ConstraintLayout.LayoutParams.PARENT_ID;
-        params.topToTop = ConstraintLayout.LayoutParams.PARENT_ID;
-        params.bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID;
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                600, 600);
         gameContainer.addView(gameView, params);
 
         btnRestart.setOnClickListener(v -> gameView.restartGame());
