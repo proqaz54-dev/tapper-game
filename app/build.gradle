@@ -1,0 +1,37 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.mygame'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.mygame"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    ndkVersion "25.1.8937393"
+}
+
+playStoreConfig {
+    implicitDownloads {
+        enabled = true
+    }
+}
+
+install {
+    accuracy = "exact"
+    installOptions = ["-e", "-r"]
+}
